@@ -1,0 +1,291 @@
+:root {
+    --primary-color: #003366; /* Bleu foncé pour l'en-tête et les boutons principaux */
+    --secondary-color: #006699; /* Bleu moyen pour les cartes et les boutons secondaires */
+    --text-color-light: #ffffff; /* Texte clair sur fond foncé */
+    --text-color-dark: #333333; /* Texte foncé sur fond clair */
+    --background-color: #f0f2f5; /* Arrière-plan général */
+    --border-radius: 8px; /* Rayon des bordures pour les éléments arrondis */
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour les cartes */
+    --button-hover-darken: brightness(0.9); /* Assombrir au survol */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    padding: 1rem 0;
+    box-shadow: var(--card-shadow);
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur les petits écrans */
+}
+
+.header-content .logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+}
+
+.site-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1; /* Permet au titre de prendre l'espace disponible */
+}
+
+.site-subtitle {
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: center;
+    width: 100%; /* S'assure que le sous-titre est sur sa propre ligne si nécessaire */
+}
+
+.main-content {
+    flex-grow: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.controls-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    align-items: center;
+}
+
+.file-selection {
+    grid-column: span 1;
+}
+
+.file-info {
+    grid-column: span 1;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.toggle-switch-container {
+    grid-column: span 1;
+    justify-content: center;
+}
+
+.methods-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.visualization-card {
+    grid-column: span 2; /* Prend deux colonnes sur les grands écrans */
+    min-height: 250px; /* Hauteur minimale pour la zone de visualisation */
+}
+
+.method-card {
+    min-height: 150px;
+}
+
+.export-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne */
+}
+
+.button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, filter 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+
+.primary-button:hover {
+    filter: var(--button-hover-darken);
+}
+
+.secondary-button {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    border: 1px solid var(--text-color-light);
+}
+
+.secondary-button:hover {
+    filter: var(--button-hover-darken);
+}
+
+/* Toggle Switch Styling */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    padding: 1rem 0;
+    margin-top: 20px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-link {
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: text-decoration 0.3s ease;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .header-content .logo {
+        margin: 0;
+    }
+
+    .site-title {
+        font-size: 2rem;
+    }
+
+    .site-subtitle {
+        font-size: 1rem;
+    }
+
+    .controls-section,
+    .methods-section {
+        grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
+    }
+
+    .visualization-card {
+        grid-column: span 1; /* Ne prend qu'une colonne sur les petits écrans */
+    }
+
+    .export-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button {
+        width: 100%;
+        max-width: 250px; /* Limite la largeur des boutons sur mobile */
+    }
+}
